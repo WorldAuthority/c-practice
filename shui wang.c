@@ -45,7 +45,6 @@ void sort(pnode h,pnode p)
 		else break;
 	}
 	if(q!=NULL){
-	
 	if(q->next!=NULL)
 	{
 		p->next=q->next;
