@@ -1,0 +1,74 @@
+#include<stdio.h>
+int fun1(int a,int b)
+{
+	int min=a;
+	if(b<a)min=b;
+	int i=min;
+	for(i=min;;i--)
+	{
+		if(a%i==0&&b%i==0)
+		{
+			return i;
+		}
+	}
+}
+int fun2(int a,int b)
+{
+	int max=a;
+	if(b>a)max=b;
+	int j=max;
+	for(j=max;;j++)
+	{
+		if(j%a==0&&j%b==0)
+		{
+			return j;
+		}
+	}
+	
+}
+int main()
+{
+	int ii,jj;
+	int a,b;
+	scanf("%d,%d",&a,&b);
+	ii=fun1(a,b);jj=fun2(a,b);
+	printf("最大公约数：%d\n最小公倍数：%d\n",ii,jj);
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+int main()
+{
+	int a[100],i,j,temp;
+	for(i=0;i<8;i++)
+	{
+		scanf("%d,",&a[i]);
+	}
+	scanf("%d\n",&a[i]);
+	scanf("%d",&a[++i]);
+	for(i=0;i<10;i++)
+	{
+		for(j=0;j<10-i;j++)
+		{
+			if(a[j]>a[j+1])
+			{
+				temp=a[j];
+			a[j]=a[j+1];
+				a[j+1]=temp;
+			}
+		}
+	}
+	for(i=0;i<9;i++)
+	printf("%d,",a[i]);
+	printf("%d",a[i]);
+	printf("\n");
+	return 0;
+}

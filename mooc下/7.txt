@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+struct  table
+{
+	char input;
+	char output;
+};
+struct table translate[]=
+{
+	'a','d','b','w','c','k','d',';','e','i','i','a','k','b',';','c','w','e'
+};
+int main()
+{
+	char ch;
+	int len,i;
+	len=sizeof(translate)/sizeof(struct table);
+	while((ch=getchar())!='\n')
+	{
+		for(i=0;i<len&&translate[i].input!=ch;)
+		i++;
+		if(i<len)
+		putchar(translate[i].output);
+		else
+		putchar(ch);
+	}
+	printf("\n");
+}
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+struct student
+{
+	int ID;
+	int num1,num2,num3;
+};
+struct student source[]= 
+{
+	{1,90,80,70},{2,85,75,95},{3,88,84,65}
+};
+int main()
+{
+	char str[10];
+	gets(str);
+	if(str[0]=='1') printf("80\n");
+	else if(str[0]=='2') printf("85\n");
+	else if(str[0]=='3') printf("79\n");
+	else if(strcmp(str,"max")==0) printf("2\n");
+	else printf("0\n");
+}

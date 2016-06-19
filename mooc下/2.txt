@@ -1,0 +1,48 @@
+#include <stdio.h>
+int f(int m,int n);
+int min(int m,int n);
+int main()
+{
+	int m,n,num;
+	scanf("%d,%d",&m,&n);
+	num=f(m,n);
+	printf("%d\n",num);
+}
+int f(int m,int n)
+{
+	int i;
+	for(i=min(m,n);i>=1;i--)
+	{
+		if(m%i==0&&n%i==0)
+		return i;
+	}
+}
+int min(int m,int n)
+{
+	if(m>=n)
+	return n;
+	else
+	return m;
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+int main()
+{
+	int n,i,sum=0;
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)
+	{
+		sum+=(2*i-1);
+	}
+	printf("%d\n",sum);
+}

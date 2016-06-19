@@ -1,0 +1,79 @@
+#include<stdio.h>
+main()
+{
+	int a,b,c;
+	char n;
+	scanf("%d%c%d",&a,&n,&b);
+	if(n=='+')
+	c=a+b;
+	if(n=='-')
+	c=a-b;
+	if(n=='*')
+	c=a*b;
+	if(n=='/')
+	c=a/b;
+	printf("%d",c);
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+int sum(int a,int b,int c)
+{
+	switch(c)
+	{
+		case 1:return a+b;
+		case 2:return a-b;
+		case 4:return a*b;
+		case 5:return a/b;
+	}
+}
+int main()
+{
+	int num[10],i,m=0,n=0,op[10],f;
+	char str[50];
+	gets(str);
+	for(i=0;i<strlen(str);i++)
+	{
+		if(str[i]=='+'||str[i]=='-'||str[i]=='*'||str[i]=='/')
+		{
+			n++;
+			if(str[i]=='+')
+			op[n]=1;
+			if(str[i]=='-')
+			op[n]=2;
+			if(str[i]=='*')
+			op[n]=4;
+			if(str[i]=='/')
+			op[n]=5;
+		}
+		else
+		{
+			m++;
+			num[m]=str[i]-'0';
+		}
+		if(n>=2)
+		{
+			if(m>n&&op[n]>op[n-1]&&op[n]-op[n-1]>1)
+			{
+				num[m-1]=sum(num[m-1],num[m],op[n]);
+				m--;
+				n--;
+			}
+			else if(op[n]<=op[n-1]||op[n]-op[n-1]==1)
+			{
+				num[m-1]=sum(num[m-1],num[m],op[n-1]);
+				op[n-1]=op[n];
+				m--;
+				n--;
+			}
+		}
+	}
+	f=sum(num[1],num[2],op[1]);
+	printf("%d\n",f);
+}

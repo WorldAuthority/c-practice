@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <string.h>
+void f(char *str1,char *str2,int num);
+int f1(int i,int len2,char *str1,char *str2);
+int main()
+{
+	char str1[100],str2[50];
+	gets(str1);
+	gets(str2);
+	f(str1,str2,0);
+}
+void f(char *str1,char *str2,int num)
+{
+	int i,j,len1=strlen(str1),len2=strlen(str2);
+	for(i=0;i<len1-len2+1;i++)
+	num+=f1(i,len2,str1,str2);
+	if(num==0)
+	printf("No\n");
+	else
+	printf("%d\n",num);
+}
+int f1(int i,int len2,char *str1,char *str2)
+{
+	int k,w=0;
+	for(k=i;k<i+len2;k++)
+	if(str1[k]!=str2[w++])
+	return 0;
+	return 1;
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+int main()
+{
+	float a[4][4]={{78,90,87,92},{88,91,89,78},{84,76,83,75},{88,90,71,83}};
+	float p[4]={0},average[4]={0};
+	int i,j;
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<4;j++)
+		p[i]+=a[i][j];
+		p[i]=p[i]/4;
+	}
+	for(i=0;i<4;i++)
+	{for(j=0;j<4;j++)
+		average[i]+=a[j][i];
+		average[i]/=4;
+	}
+	printf("wanglei,");
+	if(p[0]-(int)p[0]>0)printf("%.2f\n",p[0]);
+	else printf("%.0f\n",p[0]);
+	printf("lihong,");
+	if(p[1]-(int)p[1]>0)printf("%.2f\n",p[1]);
+	else printf("%.0f\n",p[1]);
+	printf("zhangli,");
+	if(p[2]-(int)p[2]>0)printf("%.2f\n",p[2]);
+	else printf("%.0f\n",p[2]);
+	printf("liuming,");
+	if(p[3]-(int)p[3]>0)printf("%.2f\n",p[3]);
+	else printf("%.0f\n",p[3]);
+	printf("AVERAGE:");
+	for(i=0;i<3;i++)
+	{
+		if(average[i]-(int)average[i]>0)
+		printf("%.2f,",average[i]);
+		else printf("%.0f",average[i]);
+	}
+	if(average[i]-(int)average[i]>0)
+		printf("%.2f,",average[i]);
+		else printf("%.0f",average[i]);
+		printf("\n");
+}

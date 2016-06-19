@@ -1,0 +1,66 @@
+#include <stdio.h>
+float average(float *a,int n,float sum);
+int main()
+{
+	float a[13];
+	int n,i;
+	int b;
+	for(i=1;i<=12;i++)
+	scanf("%f",&a[i]);
+	scanf("%d",&n);
+	float t=average(a,n,0);
+	b=t;
+	if(t-b>0)
+	printf("%.2f\n",t);
+	else printf("%d\n",b);
+	
+}
+float average(float *a,int n,float sum)
+{
+	int i;
+	for(i=4*(n-1)+1;i<4*n;i++){
+		printf("%.0f ",a[i]);
+		sum+=a[i];
+	}
+	printf("%.0f\n",a[i]);
+	sum+=a[i];
+	sum=sum/4;
+	return sum;
+}
+
+
+
+
+
+
+
+#include<stdio.h>
+int main()
+{
+	int a[3][4];
+	int b[3];
+	int i,j,k,m;
+	for(i=0;i<3;i++)
+	for(j=0;j<4;j++)
+	scanf("%d",&a[i][j]);
+	//算总分, 题目没有要求输出平均分，所以只算总分，以总分排序 
+	for(i=0;i<3;i++){
+		b[i]=0;
+		for(j=0;j<4;j++)
+			b[i]+=a[i][j];
+	}
+	//排序
+	for(i=0;i<2;i++) 
+	for(j=i+1;j<3;j++)
+		if (b[i]<b[j]){
+			for(k=0;k<4;k++){
+				m=a[i][k];a[i][k]=a[j][k];a[j][k]=m;
+			}
+		}
+	//输出
+	for(i=0;i<3;i++){
+		for(j=0;j<3;j++)
+			printf("%d,",a[i][j]);
+		printf("%d\n",a[i][j]);
+	}	
+}
